@@ -14,7 +14,7 @@ data class ColumnMarginDecorator(
     private val position: Int
 ) {
     fun setColumnMargins(itemView: View) {
-        val column = position % 2
+        val column = position % SPAN_COUNT
 
         items[position].settings = Settings(column)
 
@@ -28,8 +28,8 @@ data class ColumnMarginDecorator(
 
     private companion object {
         const val SPAN_COUNT = 2
-        const val HORIZONTAL_MARGIN = 36
-        const val TOP_MARGIN = 16
+        const val HORIZONTAL_MARGIN = 22
+        const val TOP_MARGIN = 22
         const val BOTTOM_MARGIN = 0
     }
 }
