@@ -5,7 +5,7 @@
     android:id="@+id/filmsListFragment"
     style="@style/MM"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".kotlinapp.ui.fragments.FilmsListFragment">
+    tools:context=".kotlinapp.ui.fragments.FilmsFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView

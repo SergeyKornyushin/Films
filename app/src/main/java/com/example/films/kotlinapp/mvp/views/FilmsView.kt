@@ -16,5 +16,5 @@ interface FilmsView : ContentLoadingView {
     fun showFilms(films: List<ListItem>)
 
     @StateStrategyType(OneExecutionStateStrategy::class)
-    fun showFilm(film: Film, genresWithYear: String)
+    fun showFilmInfo(film: Film, genresWithYear: String)
 }

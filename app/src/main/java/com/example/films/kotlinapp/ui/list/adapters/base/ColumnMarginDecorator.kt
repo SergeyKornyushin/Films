@@ -2,6 +2,10 @@ package com.example.films.kotlinapp.ui.list.adapters.base
 
 import android.view.View
 import android.view.ViewGroup
+import com.example.films.kotlinapp.ui.constants.UiConstants.DEFAULT_BOTTOM_MARGIN
+import com.example.films.kotlinapp.ui.constants.UiConstants.DEFAULT_HORIZONTAL_MARGIN
+import com.example.films.kotlinapp.ui.constants.UiConstants.DEFAULT_TOP_MARGIN
+import com.example.films.kotlinapp.ui.constants.UiConstants.SPAN_COUNT
 import com.example.films.kotlinapp.ui.list.ListItem
 import com.example.films.kotlinapp.ui.list.Settings
 
@@ -18,18 +22,11 @@ data class ColumnMarginDecorator(
 
         items[position].settings = Settings(column)
 
-        val right = HORIZONTAL_MARGIN - column * HORIZONTAL_MARGIN / SPAN_COUNT
-        val left = (column + 1) * HORIZONTAL_MARGIN / SPAN_COUNT
+        val right = DEFAULT_HORIZONTAL_MARGIN - column * DEFAULT_HORIZONTAL_MARGIN / SPAN_COUNT
+        val left = (column + 1) * DEFAULT_HORIZONTAL_MARGIN / SPAN_COUNT
 
         val layoutParams = itemView.layoutParams as ViewGroup.MarginLayoutParams
-        layoutParams.setMargins(left, TOP_MARGIN, right, BOTTOM_MARGIN)
+        layoutParams.setMargins(left, DEFAULT_TOP_MARGIN, right, DEFAULT_BOTTOM_MARGIN)
         itemView.layoutParams = layoutParams
-    }
-
-    private companion object {
-        const val SPAN_COUNT = 2
-        const val HORIZONTAL_MARGIN = 22
-        const val TOP_MARGIN = 22
-        const val BOTTOM_MARGIN = 0
     }
 }

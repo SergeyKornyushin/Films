@@ -17,17 +17,24 @@ import com.example.films.utils.image_loader.ImageLoaderListener
  * Fragment с отображением детальной информации о фильме
  */
 class FilmPageFragment : BaseWithAppBarNavigationFragment(R.layout.film_page_fragment), FilmView {
-    private lateinit var binding: FilmPageFragmentBinding
 
     private val args: FilmPageFragmentArgs by navArgs()
 
+    private var _binding: FilmPageFragmentBinding? = null
+    private val binding get() = _binding!!
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FilmPageFragmentBinding.bind(view)
+        _binding = FilmPageFragmentBinding.bind(view)
 
         initAppBarProvider()
 
         showFilm(args.film, args.genresWithYear)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun showFilm(film: Film, genresWithYear: String) {

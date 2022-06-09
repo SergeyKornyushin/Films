@@ -1,13 +1,14 @@
 package com.example.films.kotlinapp.ui.list.adapters.base
 
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.films.kotlinapp.ui.list.adapters.RVAdapter
+import com.example.films.kotlinapp.ui.list.adapters.RecyclerViewAdapter
 
 /**
  * Определяет сколько column будет занимать элемент
  * конкретного типа в RecyclerView
  */
-class RVFilmsSpanSize(private val rvAdapter: RVAdapter) : GridLayoutManager.SpanSizeLookup() {
+class RecyclerViewSpanSize(private val rvAdapter: RecyclerViewAdapter) :
+    GridLayoutManager.SpanSizeLookup() {
 
     override fun getSpanSize(position: Int): Int {
         return when (rvAdapter.getItemViewType(position)) {

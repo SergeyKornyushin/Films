@@ -1,9 +1,7 @@
 package com.example.films.kotlinapp.mvp.presenters
 
 import com.example.films.kotlinapp.mvp.models.FilmModel
-import com.example.films.kotlinapp.mvp.models.FilmModelProd
 import com.example.films.kotlinapp.mvp.models.FilmsModel
-import com.example.films.kotlinapp.mvp.models.FilmsModelProd
 import com.example.films.kotlinapp.mvp.models.entities.Film
 import com.example.films.kotlinapp.mvp.models.entities.Genre
 import com.example.films.kotlinapp.mvp.presenters.base.BasePresenter
@@ -36,7 +34,7 @@ class FilmsPresenter(private val filmsModel: FilmsModel, private val filmModel: 
         })
     }
 
-    fun onGenreClicked(genre: Genre) {
+    fun onGenreSelected(genre: Genre) {
         filmsModel.getFilmsByGenre(
             genre = genre,
             callback = object : FilmsModel.GetFilmsCallback {
@@ -52,7 +50,7 @@ class FilmsPresenter(private val filmsModel: FilmsModel, private val filmModel: 
     }
 
     fun onFilmClicked(filmId: Int) {
-        (filmModel as FilmModelProd).getSelectedFilm(
+        filmModel.getSelectedFilm(
             filmId = filmId,
             callback = object : FilmModel.GetFilmCallback {
                 override fun onSuccess(data: Film) {
@@ -62,7 +60,7 @@ class FilmsPresenter(private val filmsModel: FilmsModel, private val filmModel: 
                     }
                     stringBuilder.append(data.year)
 
-                    viewState.showFilm(data, stringBuilder.toString())
+                    viewState.showFilmInfo(data, stringBuilder.toString())
                 }
 
                 override fun onError(error: String) {

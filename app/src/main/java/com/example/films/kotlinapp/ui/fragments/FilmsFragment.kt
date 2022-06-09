@@ -12,11 +12,12 @@ import com.example.films.kotlinapp.mvp.models.entities.Film
 import com.example.films.kotlinapp.mvp.models.entities.Genre
 import com.example.films.kotlinapp.mvp.presenters.FilmsPresenter
 import com.example.films.kotlinapp.mvp.views.FilmsView
+import com.example.films.kotlinapp.ui.constants.UiConstants.SPAN_COUNT
 import com.example.films.kotlinapp.ui.fragments.base.BaseWithAppBarNavigationFragment
 import com.example.films.kotlinapp.ui.list.ListItem
-import com.example.films.kotlinapp.ui.list.adapters.RVAdapter
+import com.example.films.kotlinapp.ui.list.adapters.RecyclerViewAdapter
 import com.example.films.kotlinapp.ui.list.adapters.base.ListExtension
-import com.example.films.kotlinapp.ui.list.adapters.base.RVFilmsSpanSize
+import com.example.films.kotlinapp.ui.list.adapters.base.RecyclerViewSpanSize
 import com.example.films.kotlinapp.ui.list.view_holders.FilmViewHolder
 import com.example.films.kotlinapp.ui.list.view_holders.GenreViewHolder
 import com.example.films.utils.ScreenLocker
@@ -27,16 +28,18 @@ import org.koin.android.ext.android.get
 /**
  * Fragment с отображением списка фильмов и жанров
  */
-class FilmsListFragment :
+class FilmsFragment :
     BaseWithAppBarNavigationFragment(R.layout.films_list_fragment),
     FilmsView,
     ScreenLocker,
     FilmViewHolder.FilmViewHolderListener,
     GenreViewHolder.GenreViewHolderListener {
 
-    private lateinit var binding: FilmsListFragmentBinding
+    private var _binding: FilmsListFragmentBinding? = null
+    private val binding get() = _binding!!
+
     private var listExtension: ListExtension? = null
-    private lateinit var adapter: RVAdapter
+    private lateinit var adapter: RecyclerViewAdapter
 
     private val presenter by moxyPresenter {
         get<FilmsPresenter>()
@@ -44,18 +47,23 @@ class FilmsListFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FilmsListFragmentBinding.bind(view)
+        _binding = FilmsListFragmentBinding.bind(view)
 
         initRecyclerViewAdapter()
         initAppBarProvider()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun showFilms(films: List<ListItem>) {
         adapter.updateWithDiffUtils(films)
     }
 
-    override fun showFilm(film: Film, genresWithYear: String) {
-        val action = FilmsListFragmentDirections.actionFilmsToFilmPage(film, genresWithYear)
+    override fun showFilmInfo(film: Film, genresWithYear: String) {
+        val action = FilmsFragmentDirections.actionFilmsToFilmPage(film, genresWithYear)
         navigate(action)
     }
 
@@ -81,18 +89,18 @@ class FilmsListFragment :
     }
 
     override fun onGenreClick(genre: Genre) {
-        presenter.onGenreClicked(genre)
+        presenter.onGenreSelected(genre)
     }
 
     private fun initRecyclerViewAdapter() {
-        adapter = RVAdapter(layoutInflater)
+        adapter = RecyclerViewAdapter(layoutInflater)
         adapter.setListeners(this, this)
 
         listExtension = ListExtension(binding.filmsList)
         listExtension?.setAdapter(adapter)
 
-        val gridLayoutManager = GridLayoutManager(context, 2)
-        gridLayoutManager.spanSizeLookup = RVFilmsSpanSize(adapter)
+        val gridLayoutManager = GridLayoutManager(context, SPAN_COUNT)
+        gridLayoutManager.spanSizeLookup = RecyclerViewSpanSize(adapter)
         listExtension?.setLayoutManager(gridLayoutManager)
 
         val itemAnim = binding.filmsList.itemAnimator

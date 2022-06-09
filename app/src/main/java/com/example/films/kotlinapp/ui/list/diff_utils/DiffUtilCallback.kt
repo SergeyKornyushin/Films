@@ -10,7 +10,7 @@ import com.example.films.kotlinapp.ui.list.ListItem
 /**
  * Callback DiffUtils для RVAdapter
  */
-class DiffCallback(private val oldItems: List<ListItem>, private val newItems: List<ListItem>) :
+class DiffUtilCallback(private val oldItems: List<ListItem>, private val newItems: List<ListItem>) :
     DiffUtil.Callback() {
 
     override fun getOldListSize(): Int = oldItems.size

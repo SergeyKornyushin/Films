@@ -10,14 +10,14 @@ import com.example.films.kotlinapp.mvp.models.entities.GenresHeader
 import com.example.films.kotlinapp.ui.list.ListItem
 import com.example.films.kotlinapp.ui.list.adapters.base.BaseSequenceAdapter
 import com.example.films.kotlinapp.ui.list.adapters.base.ColumnMarginDecorator
-import com.example.films.kotlinapp.ui.list.diff_utils.DiffCallback
+import com.example.films.kotlinapp.ui.list.diff_utils.DiffUtilCallback
 import com.example.films.kotlinapp.ui.list.diff_utils.DiffUtilsUpdater
 import com.example.films.kotlinapp.ui.list.view_holders.*
 
 /**
  * RecyclerView Adapter для FilmsList view
  */
-class RVAdapter(layoutInflater: LayoutInflater) :
+class RecyclerViewAdapter(layoutInflater: LayoutInflater) :
     BaseSequenceAdapter<ListItem, BaseViewHolder>(layoutInflater), DiffUtilsUpdater<ListItem> {
 
     private lateinit var filmViewHolderListener: FilmViewHolder.FilmViewHolderListener
@@ -70,7 +70,7 @@ class RVAdapter(layoutInflater: LayoutInflater) :
     }
 
     override fun updateWithDiffUtils(films: List<ListItem>) {
-        val diff = DiffUtil.calculateDiff(DiffCallback(items, films))
+        val diff = DiffUtil.calculateDiff(DiffUtilCallback(items, films))
         updateItemsWithDiffUtil(films, diff)
     }
 
