@@ -4,6 +4,10 @@ package com.example.films.kotlinapp.ui.list
  * Типы ListItem
  */
 enum class ListItemTypes {
+
+    // Универсальный ListItem
+    ITEM,
+
     // ListItem с переходом (подразумевается, что поле заполнятся)
     SELECTION,
 

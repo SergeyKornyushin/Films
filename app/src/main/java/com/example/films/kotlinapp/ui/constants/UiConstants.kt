@@ -8,4 +8,8 @@ object UiConstants {
     const val DEFAULT_HORIZONTAL_MARGIN = 22
     const val DEFAULT_TOP_MARGIN = 22
     const val DEFAULT_BOTTOM_MARGIN = 0
+
+    const val TYPE_HEADER = 0
+    const val TYPE_GENRE = 1
+    const val TYPE_FILM = 2
 }

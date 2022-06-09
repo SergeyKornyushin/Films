@@ -5,8 +5,8 @@ import com.example.films.kotlinapp.mvp.models.FilmModel
 import com.example.films.kotlinapp.mvp.models.FilmModelProd
 import com.example.films.kotlinapp.mvp.models.FilmsModel
 import com.example.films.kotlinapp.mvp.models.FilmsModelProd
-import com.example.films.kotlinapp.ui.list.generators.RecyclerViewListFiller
-import com.example.films.kotlinapp.ui.list.generators.RecyclerViewMapper
+import com.example.films.kotlinapp.ui.list.generators.ComplexListMapper
+import com.example.films.kotlinapp.ui.list.generators.ListFiller
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import org.koin.dsl.module
@@ -17,7 +17,7 @@ val modelsModule = module {
             apiFilms = get(),
             mappersForSave = get(),
             filmsDao = get(),
-            mapperRecyclerViewFiller = get(),
+            mapperFiller = get(),
             coroutineDispatcher = get()
         )
     }
@@ -37,12 +37,12 @@ val modelsModule = module {
         )
     }
 
-    factory<RecyclerViewListFiller> {
-        RecyclerViewListFiller.Base(recyclerViewMapper = get())
+    factory<ListFiller> {
+        ListFiller.Base(complexListMapper = get())
     }
 
-    factory<RecyclerViewMapper> {
-        RecyclerViewMapper.Base()
+    factory<ComplexListMapper> {
+        ComplexListMapper.Base()
     }
 
     factory<SelectedFilmMapper> {

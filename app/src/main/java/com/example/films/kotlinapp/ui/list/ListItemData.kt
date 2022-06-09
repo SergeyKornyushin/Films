@@ -40,8 +40,9 @@ data class LinkData(
  * Данные [ListItem] для выделяемых полей (checkbox, radiobutton и т.д)
  */
 data class SelectableData(
-    var name: String?,
-    var value: Boolean
+    val id: Int = -1,
+    var name: String,
+    var value: Boolean = false
 )
 
 /**
@@ -51,4 +52,13 @@ class SelectData(
     var title: String? = null,
     var subTitle: String? = null,
     var value: Any? = null
+)
+
+/**
+ * Данные [ListItem] для текста с изображением
+ */
+class TitledImageData(
+    val id: Int,
+    val title: String,
+    val imageUrl: String
 )

@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import com.example.films.R
 import com.example.films.databinding.FilmItemBinding
-import com.example.films.kotlinapp.mvp.models.entities.Film
+import com.example.films.kotlinapp.ui.list.ListItem
+import com.example.films.kotlinapp.ui.list.TitledImageData
 import com.example.films.kotlinapp.ui.list.adapters.base.ColumnMarginDecorator
 import com.example.films.utils.image_loader.ImageLoader
 import com.example.films.utils.image_loader.ImageLoaderListener
@@ -18,15 +19,15 @@ class FilmViewHolder(
     parent: ViewGroup
 ) : BaseViewHolder(layoutInflater, parent, R.layout.film_item) {
     private var binding: FilmItemBinding = FilmItemBinding.bind(itemView)
-    private lateinit var film: Film
+    private lateinit var listItem: ListItem
     private lateinit var listener: FilmViewHolderListener
 
     fun bind(
-        film: Film,
+        listItem: ListItem,
         listener: FilmViewHolderListener,
         columnMarginDecorator: ColumnMarginDecorator
     ) {
-        this.film = film
+        this.listItem = listItem
         this.listener = listener
 
         columnMarginDecorator.setColumnMargins(itemView)
@@ -35,10 +36,10 @@ class FilmViewHolder(
     }
 
     private fun showFilmInfo() {
-        binding.filmNameText.text = film.localized_name
-        if (film.image_url.isNotEmpty())
+        binding.filmNameText.text = (listItem.data as TitledImageData).title
+        if ((listItem.data as TitledImageData).imageUrl.isNotEmpty())
             ImageLoader
-                .load(film.image_url)
+                .load((listItem.data as TitledImageData).imageUrl)
                 .into(
                     binding.filmPosterImage,
                     object : ImageLoaderListener {
@@ -59,7 +60,7 @@ class FilmViewHolder(
 
     private fun setListener() {
         itemView.setOnClickListener {
-            listener.onFilmClick(film.filmId)
+            listener.onFilmClick((listItem.data as TitledImageData).id)
         }
     }
 

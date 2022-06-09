@@ -10,7 +10,7 @@ import com.example.films.kotlinapp.ui.list.ListItem
 interface FilmsModel {
 
     fun getFilms(callback: GetFilmsCallback)
-    fun getFilmsByGenre(genre: Genre, callback: GetFilmsCallback)
+    fun getFilmsByGenre(genre: String, callback: GetFilmsCallback)
 
     /**
      * Callback для FilmsModel

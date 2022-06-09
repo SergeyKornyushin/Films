@@ -34,7 +34,7 @@ class FilmsPresenter(private val filmsModel: FilmsModel, private val filmModel: 
         })
     }
 
-    fun onGenreSelected(genre: Genre) {
+    fun onGenreSelected(genre: String) {
         filmsModel.getFilmsByGenre(
             genre = genre,
             callback = object : FilmsModel.GetFilmsCallback {

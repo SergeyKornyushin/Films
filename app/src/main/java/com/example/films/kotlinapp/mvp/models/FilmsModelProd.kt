@@ -7,7 +7,7 @@ import com.example.films.kotlinapp.data.network.NetworkCallback
 import com.example.films.kotlinapp.data.wrappers.DatabaseSaver
 import com.example.films.kotlinapp.mvp.models.entities.Genre
 import com.example.films.kotlinapp.ui.list.ListItem
-import com.example.films.kotlinapp.ui.list.generators.RecyclerViewListFiller
+import com.example.films.kotlinapp.ui.list.generators.ListFiller
 import kotlinx.coroutines.*
 
 /**
@@ -17,7 +17,7 @@ class FilmsModelProd(
     private val apiFilms: ApiService,
     private val filmsDao: FilmsDao,
     private val mappersForSave: DatabaseSaver,
-    private val mapperRecyclerViewFiller: RecyclerViewListFiller,
+    private val mapperFiller: ListFiller,
     coroutineDispatcher: CoroutineDispatcher
 ) : FilmsModel {
 
@@ -35,7 +35,7 @@ class FilmsModelProd(
                         filmsDao.clearAllTables()
                         mappersForSave.saveFilms(response, filmsDao)
                         callback.onSuccess(
-                            mapperRecyclerViewFiller.createListForRecyclerView(
+                            mapperFiller.createListForRecyclerView(
                                 genres = filmsDao.getAllGenres(),
                                 films = filmsDao.getAllFilms(),
                                 null
@@ -55,12 +55,12 @@ class FilmsModelProd(
      * Возвращает List<ListItem>
      * с фильмами конкретного жанра для RecyclerView
      */
-    override fun getFilmsByGenre(genre: Genre, callback: FilmsModel.GetFilmsCallback) {
+    override fun getFilmsByGenre(genre: String, callback: FilmsModel.GetFilmsCallback) {
         scope.launch {
             callback.onSuccess(
-                mapperRecyclerViewFiller.createListForRecyclerView(
+                mapperFiller.createListForRecyclerView(
                     genres = filmsDao.getAllGenres(),
-                    films = filmsDao.getGenreWithFilms(genre.genreName).filmsDb,
+                    films = filmsDao.getGenreWithFilms(genre).filmsDb,
                     genre = genre
                 )
             )

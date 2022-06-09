@@ -5,24 +5,26 @@ import android.view.ViewGroup
 import com.example.films.R
 import com.example.films.databinding.HeaderItemBinding
 import com.example.films.kotlinapp.mvp.models.entities.GenresHeader
+import com.example.films.kotlinapp.ui.list.HeaderData
+import com.example.films.kotlinapp.ui.list.ListItem
 
 /**
  *  ViewHolder для заголовка блока с Genres
  */
-class GenresHeaderViewHolder(
+class HeaderViewHolder(
     layoutInflater: LayoutInflater,
     parent: ViewGroup
 ) : BaseViewHolder(layoutInflater, parent, R.layout.header_item) {
     private var binding: HeaderItemBinding = HeaderItemBinding.bind(itemView)
-    private lateinit var genresHeader: GenresHeader
+    private lateinit var listItem: ListItem
 
-    fun bind(genresHeader: GenresHeader) {
-        this.genresHeader = genresHeader
+    fun bind(listItem: ListItem) {
+        this.listItem = listItem
 
         showTitleText()
     }
 
     private fun showTitleText() {
-        binding.headerText.text = genresHeader.name
+        binding.headerText.text = listItem.data.toString()
     }
 }

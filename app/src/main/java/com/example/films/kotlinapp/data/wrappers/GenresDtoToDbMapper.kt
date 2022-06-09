@@ -17,7 +17,7 @@ class GenresDtoToDbMapper : ResponseMapper<FilmsResponse, List<GenreDb>> {
         }
         val genresList: MutableList<GenreDb> = mutableListOf()
         hashSet.forEach { genre ->
-            genresList.add(GenreDb(genre.replaceFirstChar { it.uppercase() }))
+            genresList.add(GenreDb(genreName = genre.replaceFirstChar { it.uppercase() }))
         }
         return genresList
     }

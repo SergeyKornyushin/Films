@@ -88,7 +88,7 @@ class FilmsFragment :
         presenter.onFilmClicked(filmId)
     }
 
-    override fun onGenreClick(genre: Genre) {
+    override fun onGenreClick(genre: String) {
         presenter.onGenreSelected(genre)
     }
 

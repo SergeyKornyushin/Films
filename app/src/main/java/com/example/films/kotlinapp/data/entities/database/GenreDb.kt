@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey
  */
 @Entity
 data class GenreDb(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
+    val genreId: Int = 0,
     val genreName: String
 )
