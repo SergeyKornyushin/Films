@@ -1,13 +1,13 @@
 package com.example.films.kotlinapp.data.wrappers
 
 import com.example.films.kotlinapp.data.database.FilmsDao
-import com.example.films.kotlinapp.data.entities.network.FilmsDto
+import com.example.films.kotlinapp.data.network.responce.FilmsResponse
 
 /**
  * Набор мапперов для сохранения сетевого ответа в базу данных
  */
 interface DatabaseSaver {
-    suspend fun saveFilms(networkFilms: FilmsDto, filmsDao: FilmsDao)
+    suspend fun saveFilms(networkFilms: FilmsResponse, filmsDao: FilmsDao)
 
     /**
      * Базовая реализация интерфейса MappersSet
@@ -18,7 +18,7 @@ interface DatabaseSaver {
         private val filmsGenresCrossRefMapper: FilmsGenresCrossRefMapper
     ) : DatabaseSaver {
         override suspend fun saveFilms(
-            networkFilms: FilmsDto,
+            networkFilms: FilmsResponse,
             filmsDao: FilmsDao
         ) {
             filmsDao.clearAllTables()

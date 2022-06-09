@@ -1,7 +1,7 @@
 package com.example.films.kotlinapp.mvp.models
 
 import com.example.films.kotlinapp.data.database.FilmsDao
-import com.example.films.kotlinapp.data.entities.network.FilmsDto
+import com.example.films.kotlinapp.data.network.responce.FilmsResponse
 import com.example.films.kotlinapp.data.network.ApiService
 import com.example.films.kotlinapp.data.network.NetworkCallback
 import com.example.films.kotlinapp.data.wrappers.DatabaseSaver
@@ -28,8 +28,8 @@ class FilmsModelProd(
      * со всеми фильмами для RecyclerView
      */
     override fun getFilms(callback: FilmsModel.GetFilmsCallback) {
-        apiFilms.getFilms().enqueue(object : NetworkCallback<FilmsDto> {
-            override fun onSuccess(response: FilmsDto?) {
+        apiFilms.getFilms().enqueue(object : NetworkCallback<FilmsResponse> {
+            override fun onSuccess(response: FilmsResponse?) {
                 if (response != null) {
                     scope.launch {
                         filmsDao.clearAllTables()

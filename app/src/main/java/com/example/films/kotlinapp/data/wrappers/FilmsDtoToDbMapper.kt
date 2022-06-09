@@ -2,7 +2,7 @@ package com.example.films.kotlinapp.data.wrappers
 
 import com.example.films.R
 import com.example.films.kotlinapp.data.entities.database.FilmDb
-import com.example.films.kotlinapp.data.entities.network.FilmsDto
+import com.example.films.kotlinapp.data.network.responce.FilmsResponse
 import com.example.films.kotlinapp.mvp.models.base.ResponseMapper
 import com.example.films.kotlinapp.ui.extentions.avoidNullToString
 import com.example.films.utils.ResourcesUtils
@@ -10,8 +10,8 @@ import com.example.films.utils.ResourcesUtils
 /**
  * Маппер сетевого entity к entity FilmDb базы даннах
  */
-class FilmsDtoToDbMapper : ResponseMapper<FilmsDto, List<FilmDb>> {
-    override fun map(films: FilmsDto): List<FilmDb> =
+class FilmsDtoToDbMapper : ResponseMapper<FilmsResponse, List<FilmDb>> {
+    override fun map(films: FilmsResponse): List<FilmDb> =
         films.filmsDto.map { film ->
             FilmDb(
                 filmId = film.id ?: 0,

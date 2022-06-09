@@ -1,14 +1,14 @@
 package com.example.films.kotlinapp.data.wrappers
 
 import com.example.films.kotlinapp.data.entities.database.GenreDb
-import com.example.films.kotlinapp.data.entities.network.FilmsDto
+import com.example.films.kotlinapp.data.network.responce.FilmsResponse
 import com.example.films.kotlinapp.mvp.models.base.ResponseMapper
 
 /**
  * Маппер сетевого entity к entity GenreDb базы даннах
  */
-class GenresDtoToDbMapper : ResponseMapper<FilmsDto, List<GenreDb>> {
-    override fun map(films: FilmsDto): List<GenreDb> {
+class GenresDtoToDbMapper : ResponseMapper<FilmsResponse, List<GenreDb>> {
+    override fun map(films: FilmsResponse): List<GenreDb> {
         val hashSet = HashSet<String>()
         films.filmsDto.forEach { film ->
             film.genres?.forEach { genre ->

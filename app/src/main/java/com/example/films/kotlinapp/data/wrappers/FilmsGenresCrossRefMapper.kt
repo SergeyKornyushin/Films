@@ -1,7 +1,7 @@
 package com.example.films.kotlinapp.data.wrappers
 
 import com.example.films.kotlinapp.data.database.relations.FilmsGenresCrossRef
-import com.example.films.kotlinapp.data.entities.network.FilmsDto
+import com.example.films.kotlinapp.data.network.responce.FilmsResponse
 import com.example.films.kotlinapp.mvp.models.base.ResponseMapper
 
 /**
@@ -9,8 +9,8 @@ import com.example.films.kotlinapp.mvp.models.base.ResponseMapper
  * FilmDb/GenreDb many-to-many relationship
  */
 class FilmsGenresCrossRefMapper :
-    ResponseMapper<FilmsDto, List<FilmsGenresCrossRef>> {
-    override fun map(films: FilmsDto): List<FilmsGenresCrossRef> {
+    ResponseMapper<FilmsResponse, List<FilmsGenresCrossRef>> {
+    override fun map(films: FilmsResponse): List<FilmsGenresCrossRef> {
         val listFilmsGenres: MutableList<FilmsGenresCrossRef> = mutableListOf()
         films.filmsDto.forEach { film ->
             film.genres?.forEach { genre ->
