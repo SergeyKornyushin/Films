@@ -9,6 +9,7 @@ import retrofit2.http.GET
  */
 interface ApiService {
 
+    //Дергает список фильмов с сервера
     @GET("/sequeniatesttask/films.json")
     fun getFilms(): Call<FilmsResponse>
 }
