@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="W50_H50">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="W50_H50.Center">
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="W150_H220">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">220dp</item>
+    </style>
+
+    <style name="W150_H220.Center_crop">
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="M_H256">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">256dp</item>
+    </style>
+
+    <style name="M_H256.White_ef">
+        <item name="android:background">@color/white_ef</item>
+    </style>
+
+    <style name="M_H256.White_ef.Center_crop">
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+</resources>

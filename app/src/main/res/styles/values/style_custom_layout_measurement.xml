@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MM.BGWhite">
+        <item name="android:background">@color/white_ff</item>
+    </style>
+
+    <style name="WW.Center">
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+</resources>

@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -29,15 +32,81 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    kapt {
+        correctErrorTypes true
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+android.sourceSets {
+    main {
+        res.srcDirs = [
+                'src/main/res',
+                'src/main/res/layouts',
+                'src/main/res/layouts/items',
+                'src/main/res/layouts/fragments',
+                'src/main/res/layouts/appbars',
+                'src/main/res/layouts/appbars/toolbars',
+                'src/main/res/layouts/activities',
+                'src/main/res/layouts/views',
+                'src/main/res/styles',
+                'src/main/res/strings'
+        ]
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'jp.wasabeef:picasso-transformations:2.4.0'
+
+    // Retrofit
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // okhttp
+    def okhttp_version = "4.9.3"
+    implementation("com.squareup.okhttp3:okhttp-bom:$okhttp_version")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+    // Room
+    def roomVersion = "2.4.2"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+    // Moxy
+    def moxyVersion = "2.2.2"
+    kapt "com.github.moxy-community:moxy-compiler:$moxyVersion"
+    implementation "com.github.moxy-community:moxy-ktx:$moxyVersion"
+    implementation "com.github.moxy-community:moxy-androidx:$moxyVersion"
+    implementation "com.github.moxy-community:moxy-material:$moxyVersion"
+
+    // Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation 'com.github.sequenia.StateNavigationFragment:state_navigation_fragment:0.3.0'
+
+    // App-Bar-Provider
+    def appBarVersion = "1.1.1"
+    implementation "com.github.sequenia:App-Bar-Provider:$appBarVersion"
+
+    // Koin for Android
+    def koin_version= "3.2.0"
+    implementation "io.insert-koin:koin-android:$koin_version"
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MM"
+    android:padding="10dp"
+    tools:context=".kotlinapp.ui.fragments.FilmPageFragment">
+
+    <LinearLayout style="@style/LVMW">
+
+        <androidx.cardview.widget.CardView
+            style="@style/WW.Center"
+            app:cardCornerRadius="4dp">
+
+            <ImageView
+                android:id="@+id/film_poster_image"
+                style="@style/W150_H220.Center_crop"
+                tools:src="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/poster_not_found_image"
+                style="@style/W50_H50.Center"
+                app:srcCompat="@drawable/img_image_not_found"
+                tools:src="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/film_name_text"
+            style="@style/Roboto.Bold.Black_00.Size26.WW"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/genres_year_text"
+            style="@style/Roboto.Normal.Gray_4b.Size16.WW"
+            android:layout_marginTop="10dp"
+            tools:text="genre, year" />
+
+        <LinearLayout style="@style/LHWW">
+
+            <TextView
+                android:id="@+id/film_rating_text"
+                style="@style/Roboto.Bold.Purple_6936d6.Size24.WW"
+                android:layout_marginTop="10dp"
+                tools:text="Rating" />
+
+            <TextView
+                android:id="@+id/rating_source_text"
+                style="@style/Roboto.Bold.Purple_6936d6.Size16.WW"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                tools:text="Kinopoisk" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/film_description_text"
+            style="@style/Roboto.Normal.Black_00.Size14.MW"
+            android:layout_marginTop="10dp"
+            tools:text="Description" />
+
+    </LinearLayout>
+</ScrollView>
