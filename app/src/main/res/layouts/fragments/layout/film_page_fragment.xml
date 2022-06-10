@@ -16,6 +16,7 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/film_poster_image"
                 style="@style/W132_H201.fitXY"
+                android:background="@color/white_ef"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerRadius4dp"
                 tools:src="@tools:sample/avatars" />
 
