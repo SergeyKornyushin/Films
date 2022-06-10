@@ -42,4 +42,8 @@
         <item name="cornerSizeBottomRight">4dp</item>
         <item name="cornerFamilyBottomRight">rounded</item>
     </style>
+
+    <style name="RedAccent" parent="Widget.AppCompat.ProgressBar">
+        <item name="colorAccent">#F00</item>
+    </style>
 </resources>

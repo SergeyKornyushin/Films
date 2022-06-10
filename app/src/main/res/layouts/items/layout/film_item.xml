@@ -13,12 +13,6 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerRadius4dp"
             />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/poster_not_found_image"
-            style="@style/W56_H56.Center"
-            app:srcCompat="@drawable/img_poster_not_found"
-            tools:src="@tools:sample/avatars" />
-
     </FrameLayout>
 
     <com.google.android.material.textview.MaterialTextView

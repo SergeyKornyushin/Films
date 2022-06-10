@@ -9,8 +9,10 @@ import com.example.films.kotlinapp.ui.list.ListItem
 import com.example.films.kotlinapp.ui.list.TitledImageData
 import com.example.films.kotlinapp.ui.list.adapters.base.ColumnMarginDecorator
 import com.example.films.kotlinapp.ui.list.view_holders.base.BaseViewHolder
+import com.example.films.utils.ResourcesUtils
 import com.example.films.utils.image_loader.ImageLoader
 import com.example.films.utils.image_loader.ImageLoaderListener
+import com.squareup.picasso.Picasso
 
 /**
  * ViewHolder для Film
@@ -39,24 +41,31 @@ class FilmViewHolder(
     private fun showFilmInfo() {
         binding.filmNameText.text = (listItem.data as TitledImageData).title
         if ((listItem.data as TitledImageData).imageUrl.isNotEmpty())
-            ImageLoader
-                .load((listItem.data as TitledImageData).imageUrl)
-                .into(
-                    binding.filmPosterImage,
-                    object : ImageLoaderListener {
-                        override fun onError(error: String) {
-                            binding.posterNotFoundImage.isVisible = true
-                        }
+//            ImageLoader
+//                .load((listItem.data as TitledImageData).imageUrl)
+//                .error(R.drawable.img)
+//                .into(binding.filmPosterImage)
+            Picasso.get().load(R.drawable.img).into(binding.filmPosterImage)
 
-                        override fun onSuccess() {
-                            binding.posterNotFoundImage.isVisible = false
-                        }
-                    }
-                )
-        else {
-            binding.posterNotFoundImage.isVisible = true
-            binding.filmPosterImage.setImageDrawable(null)
-        }
+//        if ((listItem.data as TitledImageData).imageUrl.isNotEmpty())
+//            ImageLoader
+//                .load((listItem.data as TitledImageData).imageUrl)
+//                .into(
+//                    binding.filmPosterImage,
+//                    object : ImageLoaderListener {
+//                        override fun onError(error: String) {
+//                            binding.posterNotFoundImage.isVisible = true
+//                        }
+//
+//                        override fun onSuccess() {
+//                            binding.posterNotFoundImage.isVisible = false
+//                        }
+//                    }
+//                )
+//        else {
+//            binding.posterNotFoundImage.isVisible = true
+//            binding.filmPosterImage.setImageDrawable(null)
+//        }
     }
 
     private fun setListener() {
