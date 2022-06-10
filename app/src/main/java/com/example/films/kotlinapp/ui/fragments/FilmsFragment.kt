@@ -9,15 +9,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.films.R
 import com.example.films.databinding.FilmsListFragmentBinding
 import com.example.films.kotlinapp.mvp.models.entities.Film
-import com.example.films.kotlinapp.mvp.models.entities.Genre
 import com.example.films.kotlinapp.mvp.presenters.FilmsPresenter
 import com.example.films.kotlinapp.mvp.views.FilmsView
 import com.example.films.kotlinapp.ui.constants.UiConstants.SPAN_COUNT
 import com.example.films.kotlinapp.ui.fragments.base.BaseWithAppBarNavigationFragment
 import com.example.films.kotlinapp.ui.list.ListItem
-import com.example.films.kotlinapp.ui.list.adapters.RecyclerViewAdapter
+import com.example.films.kotlinapp.ui.list.adapters.ListAdapter
 import com.example.films.kotlinapp.ui.list.adapters.base.ListExtension
-import com.example.films.kotlinapp.ui.list.adapters.base.RecyclerViewSpanSize
+import com.example.films.kotlinapp.ui.list.adapters.base.ListSpanSize
 import com.example.films.kotlinapp.ui.list.view_holders.FilmViewHolder
 import com.example.films.kotlinapp.ui.list.view_holders.GenreViewHolder
 import com.example.films.utils.ScreenLocker
@@ -37,9 +36,10 @@ class FilmsFragment :
 
     private var _binding: FilmsListFragmentBinding? = null
     private val binding get() = _binding!!
+    private var _adapter: ListAdapter? = null
+    private val adapter get() = _adapter!!
 
     private var listExtension: ListExtension? = null
-    private lateinit var adapter: RecyclerViewAdapter
 
     private val presenter by moxyPresenter {
         get<FilmsPresenter>()
@@ -56,6 +56,7 @@ class FilmsFragment :
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        _adapter = null
     }
 
     override fun showFilms(films: List<ListItem>) {
@@ -93,14 +94,14 @@ class FilmsFragment :
     }
 
     private fun initRecyclerViewAdapter() {
-        adapter = RecyclerViewAdapter(layoutInflater)
+        _adapter = ListAdapter(layoutInflater)
         adapter.setListeners(this, this)
 
         listExtension = ListExtension(binding.filmsList)
         listExtension?.setAdapter(adapter)
 
         val gridLayoutManager = GridLayoutManager(context, SPAN_COUNT)
-        gridLayoutManager.spanSizeLookup = RecyclerViewSpanSize(adapter)
+        gridLayoutManager.spanSizeLookup = ListSpanSize(adapter)
         listExtension?.setLayoutManager(gridLayoutManager)
 
         val itemAnim = binding.filmsList.itemAnimator

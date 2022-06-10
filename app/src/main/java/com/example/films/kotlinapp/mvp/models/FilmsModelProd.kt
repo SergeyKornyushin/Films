@@ -1,14 +1,16 @@
 package com.example.films.kotlinapp.mvp.models
 
 import com.example.films.kotlinapp.data.database.FilmsDao
-import com.example.films.kotlinapp.data.network.responce.FilmsResponse
 import com.example.films.kotlinapp.data.network.ApiService
 import com.example.films.kotlinapp.data.network.NetworkCallback
+import com.example.films.kotlinapp.data.network.responce.FilmsResponse
 import com.example.films.kotlinapp.data.wrappers.DatabaseSaver
-import com.example.films.kotlinapp.mvp.models.entities.Genre
 import com.example.films.kotlinapp.ui.list.ListItem
 import com.example.films.kotlinapp.ui.list.generators.ListFiller
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 /**
  * Реализация модели FilmsModel

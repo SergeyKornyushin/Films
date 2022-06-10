@@ -8,6 +8,7 @@ import com.example.films.databinding.FilmItemBinding
 import com.example.films.kotlinapp.ui.list.ListItem
 import com.example.films.kotlinapp.ui.list.TitledImageData
 import com.example.films.kotlinapp.ui.list.adapters.base.ColumnMarginDecorator
+import com.example.films.kotlinapp.ui.list.view_holders.base.BaseViewHolder
 import com.example.films.utils.image_loader.ImageLoader
 import com.example.films.utils.image_loader.ImageLoaderListener
 

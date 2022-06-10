@@ -8,7 +8,7 @@ import moxy.viewstate.strategy.StateStrategyType
 /**
  * Интерфейс для FilmsPage view
  */
-interface FilmView : BaseView {
+interface FilmPageView : BaseView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun showFilm(film: Film, genresWithYear: String)

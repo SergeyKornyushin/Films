@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.films.R
 import com.example.films.databinding.GenreItemBinding
-import com.example.films.kotlinapp.mvp.models.entities.Genre
 import com.example.films.kotlinapp.ui.list.ListItem
 import com.example.films.kotlinapp.ui.list.SelectableData
+import com.example.films.kotlinapp.ui.list.view_holders.base.BaseViewHolder
 
 /**
  * ViewHolder для Genre

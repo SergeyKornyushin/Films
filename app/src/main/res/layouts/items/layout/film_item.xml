@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/film_name_text"
-        style="@style/Roboto.Bold.Black_00.Size16.M_H40"
+        style="@style/Roboto400.Bold.Black_00.Size16.M_H40"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:gravity="start"

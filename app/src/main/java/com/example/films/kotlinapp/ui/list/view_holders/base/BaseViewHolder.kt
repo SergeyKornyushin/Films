@@ -1,4 +1,4 @@
-package com.example.films.kotlinapp.ui.list.view_holders
+package com.example.films.kotlinapp.ui.list.view_holders.base
 
 import android.view.LayoutInflater
 import android.view.View

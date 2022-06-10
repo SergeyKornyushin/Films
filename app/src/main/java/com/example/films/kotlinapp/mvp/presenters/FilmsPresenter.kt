@@ -3,7 +3,6 @@ package com.example.films.kotlinapp.mvp.presenters
 import com.example.films.kotlinapp.mvp.models.FilmModel
 import com.example.films.kotlinapp.mvp.models.FilmsModel
 import com.example.films.kotlinapp.mvp.models.entities.Film
-import com.example.films.kotlinapp.mvp.models.entities.Genre
 import com.example.films.kotlinapp.mvp.presenters.base.BasePresenter
 import com.example.films.kotlinapp.mvp.views.FilmsView
 import com.example.films.kotlinapp.ui.list.ListItem

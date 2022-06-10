@@ -4,13 +4,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.films.kotlinapp.ui.constants.UiConstants.TYPE_FILM
 import com.example.films.kotlinapp.ui.constants.UiConstants.TYPE_GENRE
 import com.example.films.kotlinapp.ui.constants.UiConstants.TYPE_HEADER
-import com.example.films.kotlinapp.ui.list.adapters.RecyclerViewAdapter
+import com.example.films.kotlinapp.ui.list.adapters.ListAdapter
 
 /**
  * Определяет сколько column будет занимать элемент
  * конкретного типа в RecyclerView
  */
-class RecyclerViewSpanSize(private val rvAdapter: RecyclerViewAdapter) :
+class ListSpanSize(private val rvAdapter: ListAdapter) :
     GridLayoutManager.SpanSizeLookup() {
 
     override fun getSpanSize(position: Int): Int {

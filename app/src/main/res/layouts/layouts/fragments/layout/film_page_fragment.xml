@@ -26,12 +26,12 @@
 
         <TextView
             android:id="@+id/film_name_text"
-            style="@style/Roboto.Bold.Black_00.Size26.WW"
+            style="@style/Roboto400.Bold.Black_00.Size26.WW"
             tools:text="Title" />
 
         <TextView
             android:id="@+id/genres_year_text"
-            style="@style/Roboto.Normal.Gray_4b.Size16.WW"
+            style="@style/Roboto400.Normal.Gray_4b.Size16.WW"
             android:layout_marginTop="10dp"
             tools:text="genre, year" />
 
@@ -39,13 +39,13 @@
 
             <TextView
                 android:id="@+id/film_rating_text"
-                style="@style/Roboto.Bold.Purple_6936d6.Size24.WW"
+                style="@style/Roboto400.Bold.Purple_6936d6.Size24.WW"
                 android:layout_marginTop="10dp"
                 tools:text="Rating" />
 
             <TextView
                 android:id="@+id/rating_source_text"
-                style="@style/Roboto.Bold.Purple_6936d6.Size16.WW"
+                style="@style/Roboto400.Bold.Purple_6936d6.Size16.WW"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
                 tools:text="Kinopoisk" />
@@ -53,7 +53,7 @@
 
         <TextView
             android:id="@+id/film_description_text"
-            style="@style/Roboto.Normal.Black_00.Size14.MW"
+            style="@style/Roboto400.Normal.Black_00.Size14.MW"
             android:layout_marginTop="10dp"
             tools:text="Description" />
 

@@ -1,5 +1,6 @@
 package com.example.films.kotlinapp.data.database
 
+import androidx.annotation.StringRes
 import androidx.room.*
 import com.example.films.kotlinapp.data.database.relations.FilmWithGenres
 import com.example.films.kotlinapp.data.database.relations.FilmsGenresCrossRef

@@ -3,18 +3,16 @@ package com.example.films.kotlinapp.ui.list.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import com.example.films.kotlinapp.mvp.models.entities.Film
 import com.example.films.kotlinapp.ui.constants.UiConstants.TYPE_FILM
 import com.example.films.kotlinapp.ui.constants.UiConstants.TYPE_GENRE
 import com.example.films.kotlinapp.ui.constants.UiConstants.TYPE_HEADER
 import com.example.films.kotlinapp.ui.list.ListItem
-import com.example.films.kotlinapp.ui.list.SelectableData
-import com.example.films.kotlinapp.ui.list.TitledImageData
-import com.example.films.kotlinapp.ui.list.adapters.base.BaseSequenceAdapter
+import com.example.films.kotlinapp.ui.list.ListItemTypes
+import com.example.films.kotlinapp.ui.list.adapters.base.BaseAdapter
 import com.example.films.kotlinapp.ui.list.adapters.base.ColumnMarginDecorator
 import com.example.films.kotlinapp.ui.list.diff_utils.DiffUtilCallback
 import com.example.films.kotlinapp.ui.list.diff_utils.DiffUtilsUpdater
-import com.example.films.kotlinapp.ui.list.view_holders.BaseViewHolder
+import com.example.films.kotlinapp.ui.list.view_holders.base.BaseViewHolder
 import com.example.films.kotlinapp.ui.list.view_holders.FilmViewHolder
 import com.example.films.kotlinapp.ui.list.view_holders.GenreViewHolder
 import com.example.films.kotlinapp.ui.list.view_holders.HeaderViewHolder
@@ -22,24 +20,17 @@ import com.example.films.kotlinapp.ui.list.view_holders.HeaderViewHolder
 /**
  * RecyclerView Adapter для FilmsList view
  */
-class RecyclerViewAdapter(layoutInflater: LayoutInflater) :
-    BaseSequenceAdapter<ListItem, BaseViewHolder>(layoutInflater), DiffUtilsUpdater<ListItem> {
+class ListAdapter(layoutInflater: LayoutInflater) :
+    BaseAdapter<ListItem, BaseViewHolder>(layoutInflater), DiffUtilsUpdater<ListItem> {
 
     private lateinit var filmViewHolderListener: FilmViewHolder.FilmViewHolderListener
     private lateinit var genreViewHolderListener: GenreViewHolder.GenreViewHolderListener
-    override val typesSequence: IntArray
-        get() = intArrayOf(
-            TYPE_HEADER,
-            TYPE_GENRE,
-            TYPE_HEADER,
-            TYPE_FILM
-        )
 
-    override fun getItemViewType(item: ListItem): Int {
-        return when (item.data) {
-            is String -> TYPE_HEADER
-            is SelectableData -> TYPE_GENRE
-            is TitledImageData -> TYPE_FILM
+    override fun getItemViewType(position: Int): Int {
+        return when (items[position].type) {
+            ListItemTypes.HEADER -> TYPE_HEADER
+            ListItemTypes.RADIO_BUTTON -> TYPE_GENRE
+            ListItemTypes.ITEM -> TYPE_FILM
             else -> throwUnknownViewHolderTypeException()
         }
     }
@@ -65,7 +56,6 @@ class RecyclerViewAdapter(layoutInflater: LayoutInflater) :
         return when (viewType) {
             TYPE_HEADER -> HeaderViewHolder(layoutInflater, parent)
             TYPE_GENRE -> GenreViewHolder(layoutInflater, parent)
-//            TYPE_FILMS_HEADER -> FilmsHeaderViewHolder(layoutInflater, parent)
             TYPE_FILM -> FilmViewHolder(layoutInflater, parent)
             else -> throwUnknownViewHolderTypeException()
         }

@@ -8,7 +8,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.films.R
 import com.example.films.databinding.FilmPageFragmentBinding
 import com.example.films.kotlinapp.mvp.models.entities.Film
-import com.example.films.kotlinapp.mvp.views.FilmView
+import com.example.films.kotlinapp.mvp.views.FilmPageView
 import com.example.films.kotlinapp.ui.fragments.base.BaseWithAppBarNavigationFragment
 import com.example.films.utils.image_loader.ImageLoader
 import com.example.films.utils.image_loader.ImageLoaderListener
@@ -16,7 +16,7 @@ import com.example.films.utils.image_loader.ImageLoaderListener
 /**
  * Fragment с отображением детальной информации о фильме
  */
-class FilmPageFragment : BaseWithAppBarNavigationFragment(R.layout.film_page_fragment), FilmView {
+class FilmPageFragment : BaseWithAppBarNavigationFragment(R.layout.film_page_fragment), FilmPageView {
 
     private val args: FilmPageFragmentArgs by navArgs()
 

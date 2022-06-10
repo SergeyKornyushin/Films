@@ -4,7 +4,7 @@ import android.view.MotionEvent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
-import com.example.films.kotlinapp.ui.list.view_holders.BaseViewHolder
+import com.example.films.kotlinapp.ui.list.view_holders.base.BaseViewHolder
 
 /**
  * Расширение для инициализации @RecyclerView и задания параметров

@@ -3,7 +3,7 @@ package com.example.films.kotlinapp.ui.list.adapters.base
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.films.kotlinapp.ui.list.view_holders.BaseViewHolder
+import com.example.films.kotlinapp.ui.list.view_holders.base.BaseViewHolder
 
 /**
  * Базовый Adapter

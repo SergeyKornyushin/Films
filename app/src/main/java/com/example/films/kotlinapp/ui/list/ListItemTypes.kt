@@ -8,14 +8,17 @@ enum class ListItemTypes {
     // Универсальный ListItem
     ITEM,
 
+    // ListItem c заголовком блока на экране, возможно, будут разделения по типам
+    HEADER,
+
+    // ListItem с RadioButton
+    RADIO_BUTTON,
+
     // ListItem с переходом (подразумевается, что поле заполнятся)
     SELECTION,
 
     // ListItem с checkbox
     CHECKBOX,
-
-    // ListItem с RadioButton
-    RADIO_BUTTON,
 
     // ListItem c RadioGroup
     RADIO_GROUP,
@@ -25,9 +28,6 @@ enum class ListItemTypes {
 
     // ListItem пока с любой кнопкой, возможно, кнопки будут делиться по типам
     BUTTON,
-
-    // ListItem c заголовком блока на экране, возможно, будут разделения по типам
-    HEADER,
 
     // ListItem со списком: например, галлерея фотографий
     LIST,
