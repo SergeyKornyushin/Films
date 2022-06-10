@@ -10,10 +10,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/films_list"
+        android:layout_marginTop="-8dp"
         style="@style/MM" />
 
     <ProgressBar
         android:id="@+id/download_progress_bar"
-        style="@style/WW.Center"
-        android:visibility="visible" />
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        style="@style/WW.Center" />
 </FrameLayout>

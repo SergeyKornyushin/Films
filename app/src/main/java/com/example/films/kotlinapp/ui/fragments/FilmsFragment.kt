@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.films.R
-import com.example.films.databinding.FilmsListFragmentBinding
+import com.example.films.databinding.FilmsFragmentBinding
 import com.example.films.kotlinapp.mvp.models.entities.Film
 import com.example.films.kotlinapp.mvp.presenters.FilmsPresenter
 import com.example.films.kotlinapp.mvp.views.FilmsView
@@ -28,13 +28,13 @@ import org.koin.android.ext.android.get
  * Fragment с отображением списка фильмов и жанров
  */
 class FilmsFragment :
-    BaseWithAppBarNavigationFragment(R.layout.films_list_fragment),
+    BaseWithAppBarNavigationFragment(R.layout.films_fragment),
     FilmsView,
     ScreenLocker,
     FilmViewHolder.FilmViewHolderListener,
     GenreViewHolder.GenreViewHolderListener {
 
-    private var _binding: FilmsListFragmentBinding? = null
+    private var _binding: FilmsFragmentBinding? = null
     private val binding get() = _binding!!
     private var _adapter: ListAdapter? = null
     private val adapter get() = _adapter!!
@@ -47,7 +47,7 @@ class FilmsFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FilmsListFragmentBinding.bind(view)
+        _binding = FilmsFragmentBinding.bind(view)
 
         initRecyclerViewAdapter()
         initAppBarProvider()

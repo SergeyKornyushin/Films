@@ -4,25 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/LVMW">
 
-    <androidx.cardview.widget.CardView
-        style="@style/MM.BGWhite"
-        app:cardCornerRadius="8dp">
+    <FrameLayout
+        style="@style/MM">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/film_poster_image"
-            style="@style/M_H256.White_ef.Center_crop" />
+            style="@style/M_H216.White_ef.Center_crop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerRadius4dp"
+            />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/poster_not_found_image"
-            style="@style/W50_H50.Center"
-            android:visibility="gone"
-            app:srcCompat="@drawable/img_image_not_found" />
+            style="@style/W56_H56.Center"
+            app:srcCompat="@drawable/img_poster_not_found"
+            tools:src="@tools:sample/avatars" />
 
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/film_name_text"
-        style="@style/Roboto400.Bold.Black_00.Size16.M_H40"
+        style="@style/Roboto700.Black_00.Size16.M_H40"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:gravity="start"

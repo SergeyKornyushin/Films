@@ -32,7 +32,7 @@ interface FilmsDao {
     suspend fun getFilmWithGenres(filmId: Int): FilmWithGenres
 
     @Transaction
-    @Query("SELECT * FROM GenreDb")
+    @Query("SELECT * FROM GenreDb ORDER BY genreName")
     suspend fun getAllGenres(): List<GenreDb>
 
     @Transaction

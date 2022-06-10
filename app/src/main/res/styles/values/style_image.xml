@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="W50_H50">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">50dp</item>
+    <style name="W56_H56">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
     </style>
 
-    <style name="W50_H50.Center">
+    <style name="W56_H56.Center">
         <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="W150_H220">
-        <item name="android:layout_width">150dp</item>
-        <item name="android:layout_height">220dp</item>
+    <style name="W132_H201">
+        <item name="android:layout_width">132dp</item>
+        <item name="android:layout_height">201dp</item>
     </style>
 
-    <style name="W150_H220.Center_crop">
-        <item name="android:scaleType">centerCrop</item>
+    <style name="W132_H201.fitXY">
+        <item name="android:scaleType">fitXY</item>
     </style>
 
-    <style name="M_H256">
+    <style name="M_H216">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">256dp</item>
+        <item name="android:layout_height">216dp</item>
     </style>
 
-    <style name="M_H256.White_ef">
+    <style name="M_H216.White_ef">
         <item name="android:background">@color/white_ef</item>
     </style>
 
-    <style name="M_H256.White_ef.Center_crop">
+    <style name="M_H216.White_ef.Center_crop">
         <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerRadius4dp" parent="">
+        <item name="cornerSizeTopRight">4dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeBottomLeft">4dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeTopLeft">4dp</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeBottomRight">4dp</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
     </style>
 </resources>

@@ -10,7 +10,7 @@
         android:id="@+id/filmsList"
         android:name="com.example.films.kotlinapp.ui.fragments.FilmsFragment"
         android:label="Главная"
-        tools:layout="@layout/films_list_fragment" >
+        tools:layout="@layout/films_fragment" >
         <action
             android:id="@+id/action_films_to_filmPage"
             app:destination="@id/filmPage" />
